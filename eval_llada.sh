@@ -37,5 +37,5 @@ export CUDA_VISIBLE_DEVICES=0,1,2,3
 
 accelerate launch eval_llada.py --tasks humaneval,humaneval_plus --output_path output/test_results --model llada_dist --confirm_run_unsafe_code --model_args model_path='GSAI-ML/LLaDA-8B-Base',gen_length=128,steps=128,block_length=128
 
-accelerate launch eval_llada.py --limit 4 --tasks mbpp --output_path output/test_results --model llada_dist --confirm_run_unsafe_code --model_args model_path='GSAI-ML/LLaDA-8B-Base',gen_length=128,steps=128,block_length=128
+accelerate launch eval_llada.py --tasks mbpp,mbpp_plus --output_path output/test_results --model llada_dist --confirm_run_unsafe_code --model_args model_path='GSAI-ML/LLaDA-8B-Base',gen_length=128,steps=128,block_length=128
 
