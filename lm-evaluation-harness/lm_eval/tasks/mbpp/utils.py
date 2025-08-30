@@ -14,10 +14,18 @@ except Exception as e:
 
 
 def pass_at_k(references: list[str], predictions: list[list[str]], k: list[int] = None):
+    # import pdb; pdb.set_trace() 
+    # print(references)
+    # print(predictions)
+    # input(" ")
     global compute_
     assert k is not None
     if isinstance(k, int):
         k = [k]
+    if isinstance(references, str):
+        references = [references]
+    if isinstance(predictions[0], str):
+        predictions = [[p] for p in predictions]
     res = compute_.compute(
         references=references,
         predictions=predictions,

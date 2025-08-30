@@ -15,7 +15,8 @@ metric_list:
 generation_kwargs:
   until:
     - "[DONE]"
-  do_sample: false
+  num_return_sequences: 1
+repeats: 10
 num_fewshot: 3
 fewshot_config:
   sampler: first_n
