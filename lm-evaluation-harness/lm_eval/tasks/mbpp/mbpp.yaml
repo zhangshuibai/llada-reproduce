@@ -23,3 +23,8 @@ fewshot_config:
   samples: !function utils.list_fewshot_samples
 metadata:
   version: 1.0
+filter_list:
+  - name: "create_test"
+    filter:
+      - function: "custom"
+        filter_fn: !function utils.build_predictions
