@@ -14,18 +14,10 @@ except Exception as e:
 
 
 def pass_at_k(references: list[str], predictions: list[list[str]], k: list[int] = None):
-    # import pdb; pdb.set_trace() 
-    # print(references)
-    # print(predictions)
-    # input(" ")
     global compute_
     assert k is not None
     if isinstance(k, int):
         k = [k]
-    if isinstance(references, str):
-        references = [references]
-    if isinstance(predictions[0], str):
-        predictions = [[p] for p in predictions]
     res = compute_.compute(
         references=references,
         predictions=predictions,
@@ -43,9 +35,16 @@ def extract_code_blocks(text: str) -> str:
         text_without_lang = re.sub(r"```python", "```", text)
         matches = re.findall(pattern, text_without_lang, re.DOTALL)
     if not matches:
-        return ""
+        return text
     else:
         return matches[0]
+
+# def extract_code_blocks(text: str) -> str:
+#     pattern = r"```python(.*?)```"
+#     match = re.search(pattern, text, re.DOTALL)
+#     if match:
+#         return match.group(1).strip()
+#     return ""
 
 
 def build_predictions(resps: list[list[str]], docs: list[dict]) -> list[list[str]]:

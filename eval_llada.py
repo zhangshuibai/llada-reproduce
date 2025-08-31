@@ -262,7 +262,7 @@ class LLaDAEvalHarness(LM):
             stop_tokens = elem["until"]
  
             generated_answer = generate(self.model, prompt, steps=self.steps, gen_length=self.gen_length, block_length=self.block_length, 
-                                        temperature=0, cfg_scale=self.cfg, remasking=self.remasking, mask_id=self.mask_id)
+                                        temperature=0.7, cfg_scale=self.cfg, remasking=self.remasking, mask_id=self.mask_id)
             
             generated_answer = self.tokenizer.decode(generated_answer[0][prompt.shape[1]:], skip_special_tokens=False)
             for stop_seq in stop_tokens:

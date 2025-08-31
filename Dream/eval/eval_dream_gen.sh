@@ -12,15 +12,25 @@ model=Dream-org/Dream-v0-Base-7B
 # read -ra LENGTH_ARRAY <<< "$lengths"
 # read -ra TEMP_ARRAY <<< "$temperatures"
 
-export HF_ALLOW_CODE_EVAL=1
-accelerate launch --main_process_port 29510 eval.py --model dream \
-    --model_args pretrained=${model},max_new_tokens=512,diffusion_steps=512,temperature=0.2,top_p=0.95,add_bos_token=true,escape_until=true \
-    --tasks humaneval,humaneval_plus \
-    --num_fewshot 0 \
-    --batch_size 1 \
-    --output_path evals_results/test \
-    --log_samples \
-    --confirm_run_unsafe_code
+# export HF_ALLOW_CODE_EVAL=1
+# accelerate launch --main_process_port 29510 eval.py --model dream \
+#     --model_args pretrained=${model},max_new_tokens=512,diffusion_steps=512,temperature=0.2,top_p=0.95,add_bos_token=true,escape_until=true \
+#     --tasks humaneval,humaneval_plus \
+#     --num_fewshot 0 \
+#     --batch_size 1 \
+#     --output_path evals_results/test \
+#     --log_samples \
+#     --confirm_run_unsafe_code
+
+# accelerate launch --main_process_port 29510 eval.py --model dream \
+#     --model_args pretrained=${model},max_new_tokens=512,diffusion_steps=512,temperature=0.2,top_p=0.95,add_bos_token=true,escape_until=true \
+#     --tasks mbpp \
+#     --num_fewshot 0 \
+#     --batch_size 1 \
+#     --limit 10 \
+#     --output_path evals_results/test \
+#     --log_samples \
+#     --confirm_run_unsafe_code
 # ### NOTICE: use postprocess for humaneval
 # # python postprocess_code.py {the samples_xxx.jsonl file under output_path}
 
