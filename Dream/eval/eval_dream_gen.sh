@@ -29,7 +29,7 @@ accelerate launch --main_process_port 29510 eval.py --model dream \
 #     output_path=evals_results/${TASKS_ARRAY[$i]}-ns${NSHOTS_ARRAY[$i]}
 #     echo "Task: ${TASKS_ARRAY[$i]}, Shots: ${NSHOTS_ARRAY[$i]}; Output: $output_path"
 #     accelerate launch eval.py --model dream \
-#         --model_args pretrained=${model},max_new_tokens=${LENGTH_ARRAY[$i]},diffusion_steps=${LENGTH_ARRAY[$i]},add_bos_token=true,temperature=${TEMP_ARRAY[$i]},top_p=0.95 \
+#         --model_args pretrained=${model},max_new_tokens=${LENGTH_ARRAY[$i]},diffusion_steps=${LENGTH_ARRAY[$i]},add_bos_token=true,temperature=${TEMP_ARRAY[$i]},top_p=0.95,temperature=0.1 \
 #         --tasks ${TASKS_ARRAY[$i]} \
 #         --num_fewshot ${NSHOTS_ARRAY[$i]} \
 #         --batch_size 1 \
