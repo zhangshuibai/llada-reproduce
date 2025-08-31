@@ -1,2 +1,6 @@
 Dream/eval/evals_results
 Dream/eval/evals_results/
+evals_results
+output
+output/*
+__pycache__
